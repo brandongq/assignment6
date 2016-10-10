@@ -15,12 +15,12 @@ slack_req_opts.headers = {'Content-Type': 'application/json'};
 
 module.exports.handler = function(event, context, cb) {
   var theJson = JSON.parse(event.Records[0].Sns.Message);
+  console.log(theJson);
   var slack_url = 'https://hooks.slack.com/services/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';
+  console.log(slack_url);
   var commit = theJson.commits[0];
-  var theText = "commit with id {0}".format(commit.id);
+  var theText = "commit author: " + commit.author.username + "\nMessage" + commit.message;
   var message = {
-    //"text": theJson.pusher.name + ":\n" + theJson.commits[0].message
-    //"text": theJson.message
     "text": theText
   };
 
