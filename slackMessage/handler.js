@@ -38,5 +38,4 @@ module.exports.handler = function(event, context, cb) {
         }
         context.succeed();
       });
-
 };
